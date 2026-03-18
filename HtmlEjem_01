@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portifólio</title>
+<style> .texto{width: 50%} .image{width: 50%; text-align: right;}</style>
+    <h1 style="text-align: center; color: red ">Portifólio - Enzo Serôdio Bindão</h1>
+</head>
+<body>
+
+<body> 
+<h3 ">Sobre mim: </body>
+</body>
+<h5 style="text-align: left; ">Meu nome é Enzo Serõdio Bindão, tenho 18 anos e estou cursando engenharia da computação no mackenzie. Estou cursando o primeiro semestre, onde estou aprendendo o começo sobre programação, area que me interessa muito. Nesse começo de faculdade , estou tentando ingressar na EJEM, empresa junior de engenharia do Mackenzie, onde quero contribuir e aprender muitas coisas.  </h5>
+<h3 style="text-align: left; "> Projetos que estou trabalhando:</body></h3>
+<h5 style= "text-align: left; ">Nesse meu começo estou trabalhando com Python, nessa linguagem de programação estou desenvolvendo programas basicos relacionados a variaveis, contaas matematicas e funções. Tambem estou aprendendo a usar o HTML, GitHub, Git. </h3>
+ <div class="imagem">
+        <img src="https://i.postimg.cc/Y9j1Qg4G/1b6ec93b-9c23-42cd-ba55-55aa09d0f206.jpg" width="200">
