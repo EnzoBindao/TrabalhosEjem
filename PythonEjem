@@ -1,0 +1,56 @@
+### Caça niquel:
+# O sistema deve sortear símbolos aleatórios em colunas.
+# Deve haver uma tabela de pagamentos (ex: 3 símbolos iguais pagam mais que 2).
+# O jogador começa com um saldo e decide quanto apostar em cada rodada.
+
+#Regras:
+print("O jogo funciona assim: ")
+print("- O apostador decidi quanto quer apostar em relação ao saldo atual")
+print("- Se sair todos simbolos diferentes, o apostador não recebe nada, em relação ao valor apostado")
+print("- Se sair 2 simbolos iguais, o valor recebido é de 20% em relação a quantia apostada")
+print("- Se sair 3 simbolos iguais, o valor recebido é de 30% (valor maximo), em relação a quantia apostada")
+
+#Começando o jogo:
+print("Vamos começar!")
+saldo = int(input("Digite o saldo que deseja: "))
+
+#Fazendo a primeira aposta:
+aposta = int(input("informe sua aposta inicial:"))
+
+#Vendo se é possivel iniciar o jogo:
+while aposta <= saldo:
+    simbolos = ["👽" , "👾", "😈", "☠️"]
+    import random 
+    v1 = random.choice(simbolos)
+    v2 = random.choice(simbolos)
+    v3 = random.choice(simbolos)
+    print(f"{v1},{v2},{v3}")
+    if v1 == v2 ==v3:
+        print("PREMIO MAXIMO, SUA APOSTA AUMENTA EM 30%")
+    elif v1==v2 or v1==v3 or v2==v3:
+        print("SUA APOSTA FOI AUMENTADA EM 20%")
+    else:
+        print("NÃO GANHOU NADA!")
+    if v1 == v2 == v3:
+        ganho1 = (aposta *0.30) + aposta 
+        print(f"Seu ganho foi de {ganho1}")
+    elif v1==v2 or v1==v3 or v2==v3:
+        ganho2 = (aposta *0.20) + aposta 
+        print(f"Seu ganho foi de: {ganho2}")
+    else:
+        ganho3 = 0 
+
+    if v1 == v2 == v3:
+        saldo = saldo - aposta + ganho1 
+        print(f"Seu saldo atual é de: {saldo}")
+    elif v1==v2 or v1==v3 or v2==v3:
+        saldo = saldo - aposta + ganho2
+        print(f"O seu saldo atual é de:{saldo}")
+    else:
+        saldo = saldo - aposta
+        print(f"O seu saldo atual é de:{saldo}")
+    
+    continuar = input("Deseja continuar: (s/n):")
+    if continuar != "s":
+        saldo = int(input("Informe o valor da sua aposta:"))
+        break
