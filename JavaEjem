@@ -1,0 +1,31 @@
+async function buscarpokemon() {
+    const name = document.getElementById("NomePokemon").value.toLowerCase()
+     
+    try { 
+        const resposta = await fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+
+        if (!resposta.ok){
+            thorw new erro ("Pokemon não encontrado")
+        }
+
+        const dados = await resposta.jso()
+
+        const NamoPokemon = dados.name 
+
+        const tipos = dados.types
+            .map(t => t.type.name)
+            .join(", ")
+
+        const sprite = dados.sprite.front_defaut
+
+        const resultado = document.getElementById("resultado")
+        resultado.innerHTML = `
+            Nome: ${nomePokemon} <br>
+            Tipos: ${tipos} <br>
+            <img src="${sprite}">
+        `
+    } catch (erro){
+        document.getElementById("resultado").innerHTML = 
+        "Erro: Pokemon não encontrado"
+    }
+}
