@@ -1,0 +1,24 @@
+CREATE TABLE clientes (
+    ID - 1 | nome - Ana | cidade - São Paulo
+    ID - 2 | nome - Bruno | cidade - Rio de Janeiro
+    ID - 3 | nome - Carla | cidade - São Paulo
+    ID - 4 | nome - Diego | cidade - Belo Horizonte
+    ID - 5 | nome - Thomas | cidade - São Paulo
+)
+
+CREATE TABLE produtos (
+    ID - 1 | nome - Elden Ring | preco - 249.90 | categoria - RPG
+    ID - 2 | nome - Minecraft | preco - 99.90 | categoria - Sandbox
+    ID - 3 | nome - Hollow Knight | preco - 46.99 | categoria - Aventura
+    ID - 4 | nome - GTA V | preco - 79.90 | categoria - Aventura
+    ID - 5 | nome - Cyberpunk 2077 | preco - 199.90 | categoria - RPG
+)
+CREATE TABLE pedidos (
+    ID - 1 | cliente_id - 1 | produto_id - 1 | quantidade - 2
+    ID - 2 | cliente_id - 1 | produto_id - 3 | quantidade - 1
+    ID - 3 | cliente_id - 2 | produto_id - 5 | quantidade - 1
+    ID - 4 | cliente_id - 3 | produto_id - 1 | quantidade - 3
+    ID - 5 | cliente_id - 3 | produto_id - 2 | quantidade - 2
+    ID - 6 | cliente_id - 5 | produto_id - 4 | quantidade - 1
+    ID - 7 | cliente_id - 5 | produto_id - 3 | quantidade - 4
+)
