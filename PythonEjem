@@ -1,56 +1,60 @@
-### Caça niquel:
-# O sistema deve sortear símbolos aleatórios em colunas.
-# Deve haver uma tabela de pagamentos (ex: 3 símbolos iguais pagam mais que 2).
-# O jogador começa com um saldo e decide quanto apostar em cada rodada.
 
-#Regras:
-print("O jogo funciona assim: ")
-print("- O apostador decidi quanto quer apostar em relação ao saldo atual")
-print("- Se sair todos simbolos diferentes, o apostador não recebe nada, em relação ao valor apostado")
-print("- Se sair 2 simbolos iguais, o valor recebido é de 20% em relação a quantia apostada")
-print("- Se sair 3 simbolos iguais, o valor recebido é de 30% (valor maximo), em relação a quantia apostada")
+import random
 
-#Começando o jogo:
-print("Vamos começar!")
-saldo = int(input("Digite o saldo que deseja: "))
+# Regras
+print("O jogo funciona assim:")
+print("- Você escolhe quanto deseja apostar.")
+print("- Se sair todos os simbolos diferentes, perde a aposta.")
+print("- Se sair 2 simbolos iguais, recebe 20% a mais.")
+print("- Se sair 3 simbolos iguais, recebe 30% a mais.")
 
-#Fazendo a primeira aposta:
-aposta = int(input("informe sua aposta inicial:"))
+# Comecando o jogo
+print("Vamos comecar!")
+saldo = float(input("Digite o saldo que deseja: R$ "))
 
-#Vendo se é possivel iniciar o jogo:
-while aposta <= saldo:
-    simbolos = ["👽" , "👾", "😈", "☠️"]
-    import random 
+simbolos = ["👽", "👾", "😈", "☠️"]
+
+# Iniciando as rodadas
+while saldo > 0:
+
+    print(f"\nSeu saldo atual e: R$ {saldo:.2f}")
+    aposta = float(input("Informe sua aposta: R$ "))
+
+    # Verificando se a aposta e valida
+    while aposta <= 0 or aposta > saldo:
+        print("Aposta invalida!")
+        aposta = float(input("Informe outra aposta: R$ "))
+
+    # Sorteando os simbolos
     v1 = random.choice(simbolos)
     v2 = random.choice(simbolos)
     v3 = random.choice(simbolos)
-    print(f"{v1},{v2},{v3}")
-    if v1 == v2 ==v3:
-        print("PREMIO MAXIMO, SUA APOSTA AUMENTA EM 30%")
-    elif v1==v2 or v1==v3 or v2==v3:
-        print("SUA APOSTA FOI AUMENTADA EM 20%")
-    else:
-        print("NÃO GANHOU NADA!")
-    if v1 == v2 == v3:
-        ganho1 = (aposta *0.30) + aposta 
-        print(f"Seu ganho foi de {ganho1}")
-    elif v1==v2 or v1==v3 or v2==v3:
-        ganho2 = (aposta *0.20) + aposta 
-        print(f"Seu ganho foi de: {ganho2}")
-    else:
-        ganho3 = 0 
 
+    print(v1, v2, v3)
+
+    # Verificando o resultado
     if v1 == v2 == v3:
-        saldo = saldo - aposta + ganho1 
-        print(f"Seu saldo atual é de: {saldo}")
-    elif v1==v2 or v1==v3 or v2==v3:
-        saldo = saldo - aposta + ganho2
-        print(f"O seu saldo atual é de:{saldo}")
+        print("PREMIO MAXIMO! Voce ganhou 30%!")
+        ganho = aposta * 1.30
+
+    elif v1 == v2 or v1 == v3 or v2 == v3:
+        print("VOCE GANHOU 20%!")
+        ganho = aposta * 1.20
+
     else:
-        saldo = saldo - aposta
-        print(f"O seu saldo atual é de:{saldo}")
-    
-    continuar = input("Deseja continuar: (s/n):")
+        print("NAO GANHOU NADA!")
+        ganho = 0
+
+    # Atualizando o saldo
+    saldo = saldo - aposta + ganho
+
+    print(f"Valor recebido: R$ {ganho:.2f}")
+    print(f"Seu saldo atual e: R$ {saldo:.2f}")
+
+    # Perguntando se deseja continuar
+    continuar = input("Deseja continuar? (s/n): ").lower()
+
     if continuar != "s":
-        saldo = int(input("Informe o valor da sua aposta:"))
         break
+
+print(f"\nJogo encerrado! Saldo final: R$ {saldo:.2f}")
